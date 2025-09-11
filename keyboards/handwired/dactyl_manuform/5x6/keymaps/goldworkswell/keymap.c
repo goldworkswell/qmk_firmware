@@ -37,7 +37,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                 _______,KC_PSCR,            QK_BOOT, KC_P0,
                                                 _______,_______,            _______,_______,
                                               DT_UP,_______,            C(KC_Y),_______,
-                                                DT_DOWN,DT_PRINT,            _______,QK_DEBUG_TOGGLE
+                                                DT_DOWN,DT_PRNT,            _______,QK_DEBUG_TOGGLE
 
     ),
 
@@ -46,7 +46,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
           _______,_______,_______,_______,_______,KC_LBRC,                        KC_RBRC,_______,KC_NUM,KC_INS ,KC_SCRL,KC_MUTE,
           _______,KC_LEFT,KC_UP  ,KC_DOWN,KC_RGHT,KC_LPRN,                        KC_RPRN,KC_LEFT,KC_UP,KC_DOWN,KC_RIGHT,KC_VOLU,
           _______,_______,_______,_______,_______,KC_LBRC,                        KC_RBRC,_______,_______,_______,_______,KC_VOLD,
-                                                  QK_BOOT,_______,       QK_DYNAMIC_MACRO_RECORD_1 ,QK_DYNAMIC_MACRO_RECORD_STOP,
+                                                  QK_BOOT,_______,       QK_DYNAMIC_MACRO_RECORD_START_1 ,QK_DYNAMIC_MACRO_RECORD_STOP,
                                                   _______,_______,            ARROW,_______,
                                                   _______,_______,            _______,_______,
                                                   _______,_______,            C(A(KC_DEL)),AC_TOGG 
