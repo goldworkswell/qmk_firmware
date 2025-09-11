@@ -18,13 +18,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #pragma once
 
-
-/* mouse config */
-#define MOUSEKEY_INTERVAL    20
-#define MOUSEKEY_DELAY       0
-#define MOUSEKEY_TIME_TO_MAX 60
-#define MOUSEKEY_MAX_SPEED   7
-#define MOUSEKEY_WHEEL_DELAY 0
-
 /* Enables This makes it easier for fast typists to use dual-function keys */
 #define PERMISSIVE_HOLD
+#define TAPPING_TERM 250
+#define DYNAMIC_TAPPING_TERM_INCREMENT 50
+
+#define SPLIT_HAND_PIN A3
+#define MASTER_RIGHT
+
+
+
