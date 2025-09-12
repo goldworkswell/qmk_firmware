@@ -23,8 +23,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define TAPPING_TERM 250
 #define DYNAMIC_TAPPING_TERM_INCREMENT 50
 
-#define SPLIT_HAND_PIN B3
-#define MASTER_RIGHT
+#define SPLIT_HAND_PIN F4
+
 
 
 

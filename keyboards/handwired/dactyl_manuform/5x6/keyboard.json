@@ -35,6 +35,9 @@
         "enabled": true,
         "serial": {
             "pin": "D0"
+        },
+           "usb_detect": {
+            "enabled": true
         }
     },
     "processor": "atmega32u4",
