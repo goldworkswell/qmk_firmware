@@ -6,14 +6,14 @@
 
 #define RAISE MO(_RAISE)
 #define LOWER MO(_LOWER)
-#define SAVE LT(0,KC_S)
-#define UNDO LT(0,KC_Z)
-#define REDO LT(0,KC_Y)
-#define FIND LT(0,KC_F)
-#define CUT LT(0,KC_X)
-#define COPY LT(0,KC_C)
+#define SAVE  LT(0,KC_S)
+#define UNDO  LT(0,KC_Z)
+#define REDO  LT(0,KC_Y)
+#define FIND  LT(0,KC_F)
+#define CUT   LT(0,KC_X)
+#define COPY  LT(0,KC_C)
 #define PASTE LT(0,KC_V)
-#define ALL LT(0,KC_A)
+#define ALL   LT(0,KC_A)
 enum custom_keycodes {
     ARROW = SAFE_RANGE,
 };
@@ -34,7 +34,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         QK_CAPS_WORD_TOGGLE,_______,_______,_______,_______,KC_LBRC,                        KC_RBRC, KC_P7 , KC_P8 , KC_P9 ,_______,KC_PLUS,
         _______,KC_HOME,KC_PGUP,KC_PGDN,KC_END ,KC_LPRN,                        KC_RPRN, KC_P4 , KC_P5 , KC_P6 ,KC_MINS,KC_PIPE,
         _______,_______,_______,_______,_______,KC_LBRC,                        KC_RBRC, KC_P1 , KC_P2 , KC_P3 ,KC_EQL ,KC_UNDS,
-                                                _______,KC_PSCR,            QK_BOOT, KC_P0,
+                        _______,KC_PSCR,                                                            QK_BOOT, KC_P0,
                                                 _______,_______,            _______,_______,
                                               DT_UP,_______,            C(KC_Y),_______,
                                                 DT_DOWN,DT_PRNT,            _______,QK_DEBUG_TOGGLE
@@ -46,7 +46,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
           _______,_______,_______,_______,_______,KC_LBRC,                        KC_RBRC,_______,KC_NUM,KC_INS ,KC_SCRL,KC_MUTE,
           _______,KC_LEFT,KC_UP  ,KC_DOWN,KC_RGHT,KC_LPRN,                        KC_RPRN,KC_LEFT,KC_UP,KC_DOWN,KC_RIGHT,KC_VOLU,
           _______,_______,_______,_______,_______,KC_LBRC,                        KC_RBRC,_______,_______,_______,_______,KC_VOLD,
-                                                  QK_BOOT,_______,       QK_DYNAMIC_MACRO_RECORD_START_1 ,QK_DYNAMIC_MACRO_RECORD_STOP,
+                         QK_BOOT,_______,                                  QK_DYNAMIC_MACRO_RECORD_START_1 ,QK_DYNAMIC_MACRO_RECORD_STOP,
                                                   _______,_______,            ARROW,_______,
                                                   _______,_______,            _______,_______,
                                                   _______,_______,            C(A(KC_DEL)),AC_TOGG 
