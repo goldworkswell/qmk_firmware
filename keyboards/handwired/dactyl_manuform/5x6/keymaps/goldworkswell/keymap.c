@@ -13,7 +13,7 @@
 #define CUT   LT(0,KC_X)
 #define COPY  LT(0,KC_C)
 #define PASTE LT(0,KC_V)
-#define ALL   LT(0,KC_A)
+#define ALL   LT(0,KC_A) 
 enum custom_keycodes {
     ARROW = SAFE_RANGE,
 };
