@@ -14,6 +14,8 @@
 #define COPY  LT(0,KC_C)
 #define PASTE LT(0,KC_V)
 #define ALL   LT(0,KC_A) 
+#define F5    LT(0,KC_F5)
+#define F6    LT(0,KC_F6)
 enum custom_keycodes {
     ARROW = SAFE_RANGE,
 };
@@ -30,7 +32,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_LOWER] = LAYOUT_5x6(
-        QK_LAYER_LOCK,KC_EXLM, KC_AT ,KC_HASH,KC_DLR ,S(KC_COMM),                        S(KC_DOT),KC_AMPR,KC_ASTR,KC_LPRN,KC_RPRN,KC_DEL,
+        QK_LAYER_LOCK,KC_EXLM, KC_AT ,KC_HASH,KC_DLR ,F5,                        F6,KC_AMPR,KC_ASTR,KC_LPRN,KC_RPRN,KC_DEL,
         QK_CAPS_WORD_TOGGLE,_______,_______,_______,_______,KC_LBRC,                        KC_RBRC, KC_P7 , KC_P8 , KC_P9 ,KC_EQL,KC_PLUS,
         _______,KC_HOME,KC_PGUP,KC_PGDN,KC_END ,KC_LPRN,                        KC_RPRN, KC_P4 , KC_P5 , KC_P6 ,KC_MINS,KC_PIPE,
         _______,_______,_______,_______,_______,S(KC_LBRC),                        S(KC_RBRC), KC_P1 , KC_P2 , KC_P3 ,_______ ,KC_UNDS,
@@ -42,7 +44,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_RAISE] = LAYOUT_5x6(
-          QK_LAYER_LOCK , KC_F1 , KC_F2 , KC_F3 , KC_F4 , KC_F5 ,                        KC_F6  , KC_F7 , KC_F8 , KC_F9 ,KC_F10 ,KC_F11 ,
+          QK_LAYER_LOCK , KC_F1 , KC_F2 , KC_F3 , KC_F4 , F5 ,                        F6  , KC_F7 , KC_F8 , KC_F9 ,KC_F10 ,KC_F11 ,
           _______,_______,_______,_______,_______,KC_LBRC,                        KC_RBRC,_______,KC_NUM,KC_INS ,KC_SCRL,KC_MUTE,
           _______,KC_LEFT,KC_UP  ,KC_DOWN,KC_RGHT,KC_LPRN,                        KC_RPRN,KC_LEFT,KC_UP,KC_DOWN,KC_RIGHT,KC_VOLU,
           _______,_______,_______,_______,_______,S(KC_LBRC),                        S(KC_RBRC),_______,_______,_______,_______,KC_VOLD,
@@ -99,6 +101,26 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case ALL:
             if (!record->tap.count && record->event.pressed) {
                 tap_code16(C(KC_A)); // Intercept hold function to send Ctrl-Y
+                return false;
+            }
+            return true; 
+        case F5:
+            if (!record->tap.count && record->event.pressed) {
+                tap_code16(KC_F5); // Intercept hold function to send Ctrl-Y
+                return false;
+            }
+            else if(record->event.pressed){
+                tap_code16(S(KC_COMM));
+                return false;
+            }
+            return true; 
+        case F6:
+            if (!record->tap.count && record->event.pressed) {
+                tap_code16(KC_F6); // Intercept hold function to send Ctrl-Y
+                return false;
+            }
+            else if(record->event.pressed){
+                tap_code16(S(KC_DOT));
                 return false;
             }
             return true; 
