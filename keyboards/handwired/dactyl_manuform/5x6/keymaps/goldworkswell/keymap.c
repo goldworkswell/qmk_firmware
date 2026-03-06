@@ -54,7 +54,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                          QK_BOOT,_______,                                  QK_DYNAMIC_MACRO_RECORD_START_1 ,QK_DYNAMIC_MACRO_RECORD_STOP,
                                             _______,_______,                          ARROW,_______,
                                                   _______,_______,            _______,_______,
-                                                  _______,AC_TOGG,            C(A(KC_DEL)), _______
+                                                  GM,AC_TOGG,            C(A(KC_DEL)), _______
     )
 };
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
