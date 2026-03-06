@@ -1,5 +1,6 @@
 #include QMK_KEYBOARD_H
-
+#include <stdbool.h>
+bool GAME_MODE = false;
 #define _QWERTY 0
 #define _LOWER 1
 #define _RAISE 2
@@ -16,8 +17,10 @@
 #define ALL   LT(0,KC_A) 
 #define MF5    LT(0,KC_F5)
 #define MF6    LT(0,KC_F6)
+
 enum custom_keycodes {
     ARROW = SAFE_RANGE,
+    GM,
 };
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_QWERTY] = LAYOUT_5x6(
@@ -57,55 +60,55 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case SAVE:
-            if (!record->tap.count && record->event.pressed) {
+            if (!record->tap.count && record->event.pressed && !GAME_MODE) {
                 tap_code16(C(KC_S)); // Intercept hold function to send Ctrl-s
                 return false;
             }
             return true;             // Return true for normal processing of tap keycode
         case COPY:
-            if (!record->tap.count && record->event.pressed) {
+            if (!record->tap.count && record->event.pressed && !GAME_MODE) {
                 tap_code16(C(KC_C)); // Intercept hold function to send Ctrl-C
                 return false;
             }
             return true;             // Return true for normal processing of tap keycode
         case PASTE:
-            if (!record->tap.count && record->event.pressed) {
+            if (!record->tap.count && record->event.pressed && !GAME_MODE) {
                 tap_code16(C(KC_V)); // Intercept hold function to send Ctrl-V
                 return false;
             }
             return true;             // Return true for normal processing of tap keycode
         case CUT:
-        if (!record->tap.count && record->event.pressed) {
+        if (!record->tap.count && record->event.pressed && !GAME_MODE) {
             tap_code16(C(KC_X)); // Intercept hold function to send Ctrl-x
             return false;
         }
             return true; 
         case FIND:
-            if (!record->tap.count && record->event.pressed) {
+            if (!record->tap.count && record->event.pressed && !GAME_MODE) {
                 tap_code16(C(KC_F)); // Intercept hold function to send Ctrl-f
                 return false;
             }
             return true; 
         case UNDO:
-            if (!record->tap.count && record->event.pressed) {
+            if (!record->tap.count && record->event.pressed && !GAME_MODE) {
                 tap_code16(C(KC_Z)); // Intercept hold function to send Ctrl-z
                 return false;
             }
             return true; 
         case REDO:
-            if (!record->tap.count && record->event.pressed) {
+            if (!record->tap.count && record->event.pressed && !GAME_MODE) {
                 tap_code16(C(KC_Y)); // Intercept hold function to send Ctrl-Y
                 return false;
             }
             return true; 
         case ALL:
-            if (!record->tap.count && record->event.pressed) {
+            if (!record->tap.count && record->event.pressed && !GAME_MODE) {
                 tap_code16(C(KC_A)); // Intercept hold function to send Ctrl-Y
                 return false;
             }
             return true; 
         case MF5:
-            if (!record->tap.count && record->event.pressed) {
+            if (!record->tap.count && record->event.pressed && !GAME_MODE) {
                 tap_code16(KC_F5); // Intercept hold function to send Ctrl-Y
                 return false;
             }
@@ -115,7 +118,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             return true; 
         case MF6:
-            if (!record->tap.count && record->event.pressed) {
+            if (!record->tap.count && record->event.pressed && !GAME_MODE) {
                 tap_code16(KC_F6); // Intercept hold function to send Ctrl-Y
                 return false;
             }
@@ -130,6 +133,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             else{}
             break;
+        case GM:
+            if (record->event.pressed) {
+                GAME_MODE = !GAME_MODE; // Toggle game mode on key press
+            }
+             else{}
+             break;
 
     }
     return true;
